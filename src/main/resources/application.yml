@@ -1,0 +1,54 @@
+## SERVIDOR
+server:
+  port: 8080
+  compression:
+    enabled: true
+  error:
+    include-stacktrace: never
+
+## APLICACIÓN
+spring:
+  application:
+    name: scotiabank-test
+    version: v1.0.0
+    log: ./logs/
+    restPort: ${server.port}
+    root: /${spring.application.name}/v1
+  messages:
+    encoding: UTF-8
+  main:
+    banner-mode: log
+  thymeleaf:
+    encoding: UTF-8
+    prefix: classpath:/static/
+
+  # Database
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:scotiabank-test
+    username: sa
+    password: password
+    hikari:
+      pool-name: scotiabank-test-db-pool
+      auto-commit: true
+      allow-pool-suspension: false
+      connection-timeout: 60000
+      idle-timeout: 120000
+      maximum-pool-size: 60
+      minimum-idle: 20
+      maxLifeTime: 130000
+      catalog: movii_nuevos_convenios
+  jpa:
+    database: mysql
+    database-platform: org.hibernate.dialect.H2Dialect
+    open-in-view: false
+    show-sql: false
+    hibernate:
+      ddl-auto: update
+
+## LOGGGER
+logging:
+  level:
+    root: info
+    org.springframework: info
+    com.scotiabankcolpatria: info

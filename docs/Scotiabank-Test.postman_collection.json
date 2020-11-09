@@ -1,0 +1,431 @@
+{
+	"info": {
+		"_postman_id": "8a9d4074-a78c-4058-bdfa-935b1440dd62",
+		"name": "Scotiabank-Test",
+		"description": "Colección para verificar el servicio back, para la prueba técnica de Scotiabank",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Clients",
+			"item": [
+				{
+					"name": "Listar clientes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{URL}}:{{PORT}}/scotiabank-test/v1/client",
+							"protocol": "http",
+							"host": [
+								"{{URL}}"
+							],
+							"port": "{{PORT}}",
+							"path": [
+								"scotiabank-test",
+								"v1",
+								"client"
+							]
+						},
+						"description": "Listar todos los clientes registrados"
+					},
+					"response": []
+				},
+				{
+					"name": "Consultar cliente",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{URL}}:{{PORT}}/scotiabank-test/v1/client/ANA",
+							"protocol": "http",
+							"host": [
+								"{{URL}}"
+							],
+							"port": "{{PORT}}",
+							"path": [
+								"scotiabank-test",
+								"v1",
+								"client",
+								"ANA"
+							]
+						},
+						"description": "Consultar los datos de un cliente específico"
+					},
+					"response": []
+				},
+				{
+					"name": "Registrar cliente",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"client\": {\n        \"name\": \"Rodolfo\",\n        \"address\": \"Calle 182 #72-20. Int 4. Apto 704. Bogotá. Colombia\",\n        \"phone\": \"313-5678921\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{URL}}:{{PORT}}/scotiabank-test/v1/client/",
+							"protocol": "http",
+							"host": [
+								"{{URL}}"
+							],
+							"port": "{{PORT}}",
+							"path": [
+								"scotiabank-test",
+								"v1",
+								"client",
+								""
+							]
+						},
+						"description": "Crear un nuevo cliente"
+					},
+					"response": []
+				},
+				{
+					"name": "Modificar cliente",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"client\": {\n        \"address\": \"Calle 182 #45-11. T1. Apto 1901. Bogotá. Colombia\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{URL}}:{{PORT}}/scotiabank-test/v1/client/Ronel",
+							"protocol": "http",
+							"host": [
+								"{{URL}}"
+							],
+							"port": "{{PORT}}",
+							"path": [
+								"scotiabank-test",
+								"v1",
+								"client",
+								"Ronel"
+							]
+						},
+						"description": "Actualizar los datos de un cliente"
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar cliente",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://{{URL}}:{{PORT}}/scotiabank-test/v1/client/Ronel",
+							"protocol": "http",
+							"host": [
+								"{{URL}}"
+							],
+							"port": "{{PORT}}",
+							"path": [
+								"scotiabank-test",
+								"v1",
+								"client",
+								"Ronel"
+							]
+						},
+						"description": "Eliminar un cliente específico"
+					},
+					"response": []
+				},
+				{
+					"name": "Habilitar cliente",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "http://{{URL}}:{{PORT}}/scotiabank-test/v1/client/Ronel",
+							"protocol": "http",
+							"host": [
+								"{{URL}}"
+							],
+							"port": "{{PORT}}",
+							"path": [
+								"scotiabank-test",
+								"v1",
+								"client",
+								"Ronel"
+							]
+						},
+						"description": "Habilitar un cliente eliminado"
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Accounts",
+			"item": [
+				{
+					"name": "Listar cuentas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{URL}}:{{PORT}}/scotiabank-test/v1/account",
+							"protocol": "http",
+							"host": [
+								"{{URL}}"
+							],
+							"port": "{{PORT}}",
+							"path": [
+								"scotiabank-test",
+								"v1",
+								"account"
+							]
+						},
+						"description": "Listar todas las cuentas registradas"
+					},
+					"response": []
+				},
+				{
+					"name": "Consultar cuenta",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{URL}}:{{PORT}}/scotiabank-test/v1/acount/1234-9876-5698-3274",
+							"protocol": "http",
+							"host": [
+								"{{URL}}"
+							],
+							"port": "{{PORT}}",
+							"path": [
+								"scotiabank-test",
+								"v1",
+								"acount",
+								"1234-9876-5698-3274"
+							]
+						},
+						"description": "Consultar los datos de una cuenta específica"
+					},
+					"response": []
+				},
+				{
+					"name": "Abrir cuenta",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"account\": {\n        \"number\": \"1523-6987-4568-6987\",\n        \"balance\": 125000.00,\n        \"client\": {\n            \"name\": \"Ronel\"\n        }\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{URL}}:{{PORT}}/scotiabank-test/v1/account/",
+							"protocol": "http",
+							"host": [
+								"{{URL}}"
+							],
+							"port": "{{PORT}}",
+							"path": [
+								"scotiabank-test",
+								"v1",
+								"account",
+								""
+							]
+						},
+						"description": "Crear un nuevo cliente"
+					},
+					"response": []
+				},
+				{
+					"name": "Modificar cuenta",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"account\": {\n        \"balance\": 372500.00\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{URL}}:{{PORT}}/scotiabank-test/v1/account/1523-6987-4568-6987",
+							"protocol": "http",
+							"host": [
+								"{{URL}}"
+							],
+							"port": "{{PORT}}",
+							"path": [
+								"scotiabank-test",
+								"v1",
+								"account",
+								"1523-6987-4568-6987"
+							]
+						},
+						"description": "Actualizar lso datos de una cuenta"
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar cuenta",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://{{URL}}:{{PORT}}/scotiabank-test/v1/account/5555-6666-7777-8888",
+							"protocol": "http",
+							"host": [
+								"{{URL}}"
+							],
+							"port": "{{PORT}}",
+							"path": [
+								"scotiabank-test",
+								"v1",
+								"account",
+								"5555-6666-7777-8888"
+							]
+						},
+						"description": "Eliminar una cuenta específica"
+					},
+					"response": []
+				},
+				{
+					"name": "Habilitar cuenta",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "http://{{URL}}:{{PORT}}/scotiabank-test/v1/account/5555-6666-7777-8888",
+							"protocol": "http",
+							"host": [
+								"{{URL}}"
+							],
+							"port": "{{PORT}}",
+							"path": [
+								"scotiabank-test",
+								"v1",
+								"account",
+								"5555-6666-7777-8888"
+							]
+						},
+						"description": "Habilitar una cuenta eliminada"
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Transactions",
+			"item": [
+				{
+					"name": "Abonar cuenta",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://{{URL}}:{{PORT}}/scotiabank-test/v1/transaction/5555-6666-7777-8888/135000.00",
+							"protocol": "http",
+							"host": [
+								"{{URL}}"
+							],
+							"port": "{{PORT}}",
+							"path": [
+								"scotiabank-test",
+								"v1",
+								"transaction",
+								"5555-6666-7777-8888",
+								"135000.00"
+							]
+						},
+						"description": "Realizar una transacción de crédito"
+					},
+					"response": []
+				},
+				{
+					"name": "Debitar cuenta",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://{{URL}}:{{PORT}}/scotiabank-test/v1/transaction/5555-6666-7777-8888/13500.00",
+							"protocol": "http",
+							"host": [
+								"{{URL}}"
+							],
+							"port": "{{PORT}}",
+							"path": [
+								"scotiabank-test",
+								"v1",
+								"transaction",
+								"5555-6666-7777-8888",
+								"13500.00"
+							]
+						},
+						"description": "Realizar una transacción de débito"
+					},
+					"response": []
+				},
+				{
+					"name": "Reporte de cuentas",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"client\": {\n        \"name\": \"Ronel\"\n    },\n    \"startDate\": \"2020-11-01\",\n    \"endDate\": \"2020-11-16\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{URL}}:{{PORT}}/scotiabank-test/v1/transaction/report",
+							"protocol": "http",
+							"host": [
+								"{{URL}}"
+							],
+							"port": "{{PORT}}",
+							"path": [
+								"scotiabank-test",
+								"v1",
+								"transaction",
+								"report"
+							]
+						},
+						"description": "Generar reporte de cuentas con totales"
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"variable": [
+		{
+			"id": "acab3266-0e8b-4d53-9d60-be1d2a26cd28",
+			"key": "host",
+			"value": "localhost"
+		},
+		{
+			"id": "89d522cf-314a-4a3f-a974-e5dfac312c93",
+			"key": "port",
+			"value": "8080"
+		}
+	],
+	"protocolProfileBehavior": {}
+}

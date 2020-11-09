@@ -1,0 +1,10 @@
+
+
+${AnsiColor.WHITE}─────────────────────────────────────────────────────
+${AnsiColor.BRIGHT_RED}  ╔═╗┌─┐┌─┐┌┬┐┬┌─┐┌┐ ┌─┐┌┐┌┬┌─${AnsiColor.BRIGHT_BLACK}      ${AnsiColor.WHITE}╔╦╗┌─┐┌─┐┌┬┐
+${AnsiColor.BRIGHT_RED}  ╚═╗│  │ │ │ │├─┤├┴┐├─┤│││├┴┐${AnsiColor.BRIGHT_BLACK}  ──  ${AnsiColor.WHITE} ║ ├┤ └─┐ │
+${AnsiColor.BRIGHT_RED}  ╚═╝└─┘└─┘ ┴ ┴┴ ┴└─┘┴ ┴┘└┘┴ ┴${AnsiColor.BRIGHT_BLACK}      ${AnsiColor.WHITE} ╩ └─┘└─┘ ┴
+${AnsiColor.WHITE}─────────────────────────────────────────────────────
+${AnsiStyle.NORMAL}Copyrigth ${AnsiStyle.BOLD}@2020${AnsiStyle.NORMAL}. Scotiabank Colpatria, SAS. ${AnsiStyle.ITALIC}Todos los derechos reservados.${AnsiStyle.NORMAL}
+Versión: ${AnsiStyle.BOLD}${spring.application.version}
+${AnsiStyle.NORMAL}

@@ -1,0 +1,123 @@
+* {
+    font-family: 'Roboto', sans-serif;
+}
+
+.container {
+    margin-top: 2%;
+    margin-left: 5%;
+    width: 100%;
+    margin-bottom: 2%;
+}
+
+h3 em {
+    font-weight: bold;
+    color: #ea058b;
+    text-shadow: 1px 1px 3px #333;
+    font-size: 110%;
+}
+
+li em {
+    font-weight: bold;
+    color: #727a80;
+}
+
+#seguridad pre {
+    padding-right: 20px;
+}
+
+#header img {
+    width: 477px;
+}
+
+#header em {
+    position: absolute;
+    margin-top: -5px;
+}
+
+#header h2 {
+    margin-top: 0;
+    margin-left: 10px;
+}
+
+h2 .particpante {
+    font-weight: bold;
+    color: #444444;
+    text-shadow: 1px 1px 3px #666666;
+    font-size: 28pt;
+}
+
+ul {
+    margin-top: 10px;
+}
+
+h3 {
+    /* font-size: 18px; */
+    /* background: #ea058b; */
+    color: #ea058b;
+    /* padding: 7px; */
+    text-transform: uppercase;
+    border-bottom: 1px solid #ccc;
+    border-top: 1px solid #ccc;
+    padding: 10px 0 10px 0;
+}
+
+h5 {
+    text-transform: uppercase;
+    font-weight: bolder;
+    color: #ea058b;
+}
+
+ol li a {
+    color: black;
+    cursor: pointer;
+}
+
+ol {
+    background: whitesmoke;
+    padding: 25px 35px 20px 35px;
+    margin: 0 0 0 3%;
+    border: 1px solid #dddddd;
+}
+
+h4 {
+    color: #ea058b;
+    text-transform: uppercase;
+    margin-top: 50px;
+    margin-left: 3%;
+}
+
+p {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-size: 1em !important;
+}
+
+.marco pre {
+    font-size: 0.8em;
+}
+
+.marco.col-md-5.ok:before, .marco.col-md-6.ok:before {
+    content: "RESPUESTA EXITOSA";
+}
+
+.marco.col-md-5.error:before, .marco.col-md-6.error:before {
+    content: "RESPUESTA FALLIDA";
+}
+
+#versions ul span {
+    font-weight: bolder;
+    color: black;
+    font-size: 130%;
+    text-transform: capitalize;
+    margin-left: -15px;
+    text-shadow: 1px 1px 2px #666666;
+}
+
+#versions h3 span {
+    color: #5a0236;
+}
+
+div#header {
+    margin-left: 3%;
+    margin-top: 35px;
+}
