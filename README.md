@@ -18,10 +18,18 @@ Al tratarse de un proyecto *Maven*, realizado con **SpringBoot 2.x**, para ejecu
 ``
     mvn spring-boot:run
 ``
-
 Al ingresar en su navegador, la dirección: ``http://localhost:8080/scotiabank-test/v1``, se le mostrará el archivo CHANGELOG.md (que está ubidao dentro de la carpeta *resources/static/*), indicando el correcto inicio del proyecto.
 <br><br>
 ![CHANGELOG](./docs/changelog.png)
+
+Otra opción para ejecutar el proyecto, es instalar la imagen de docker creada que está hospedada en el siguiente registro de imágenes:
+<BR><BR>
+``
+    docker pull docker.pkg.github.com/excecrable/scotia-bank/scotiabank-test:1.0.0
+``
+Esta imagen de docker se creó utilizando el *plugin de maven*, provisto por Google: **JIB**.
+
+* **NOTA:** Este proyecto esta creado utilizando el JDK 11, por lo que sólo podrá ser ejecutado en ambientes con Java 11 o superior. 
 
 ## Probar el servicio
 En la carpeta ``docs`` del proyecto, se encuentra una coleccion de *Postman*, que le permitará realizar las peticiones al servicio.

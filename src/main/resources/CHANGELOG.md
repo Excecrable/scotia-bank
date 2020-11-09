@@ -11,4 +11,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Creación del servicio
 
-[1.1.1]: docker.pkg.github.com/excecrable/scotia-bank/scotiabank-backend:1.0.0
+[1.1.1]: docker.pkg.github.com/excecrable/scotia-bank/scotiabank-test:1.0.0
