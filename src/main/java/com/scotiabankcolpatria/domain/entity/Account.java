@@ -16,7 +16,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table
+@Table(indexes = @Index(name = "idx_account_number", columnList = "number"))
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class Account implements Serializable {
 
@@ -31,7 +31,7 @@ public class Account implements Serializable {
     @JoinColumn(name = "client_id", nullable = false)
     private Client client;
 
-    @Column(nullable = false)
+    @Column(nullable = false, unique = true, length = 19)
     private String number;
 
     @Column(nullable = false)

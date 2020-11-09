@@ -36,7 +36,7 @@ import static com.scotiabankcolpatria.helper.ValidatorHelper.Validations.*;
 @Service
 @Transactional
 @AllArgsConstructor
-public final class TransactionService implements Serializable {
+public class TransactionService implements Serializable {
 
     private final AccountRepository accountRepository;
     private final TransactionRepository transactionRepository;
@@ -53,9 +53,14 @@ public final class TransactionService implements Serializable {
                     if (ValidatorHelper.validate(transaction, NULL) || ValidatorHelper.validate(transaction.getAccount(), NULL)) {
                         return Mono.error(new MandatoryFieldException("El campo 'account' es obligatorio"));
                     }
-                    Account account = transaction.getAccount();
+
+                    // Validar el resultado
+                    if (INVALID_TRANSACTION_DATA.test(transaction)) {
+                        return Mono.error(new MandatoryFieldException("No se puede realizar la transacción. Causa: Los datos proporcionados no son correctos"));
+                    }
 
                     // Validar la existencia y validez de la cuenta
+                    Account account = transaction.getAccount();
                     Optional<Account> optionalAccount = accountRepository.findByNumber(account.getNumber());
                     if (optionalAccount.isEmpty()) {
                         return Mono.error(new EntityNotFoundException("No se puede realizar la transacción. Causa: La cuenta no está registrada"));
@@ -158,6 +163,12 @@ public final class TransactionService implements Serializable {
     };
 
     private static final transient Consumer<SignalType> ON_FINALLY = signal -> log.info("----- Transacción finalizada ----");
+
+    private static final transient Predicate<Transaction> INVALID_TRANSACTION_DATA = trans -> ValidatorHelper.validate(trans, NULL) ||
+            ValidatorHelper.validate(trans.getType(), NULL) ||
+            ValidatorHelper.validate(trans.getAccount(), NULL) ||
+            ValidatorHelper.validate(trans.getAccount().getNumber(), NULL, EMPTY) ||
+            ValidatorHelper.validate(trans.getAmount(), NULL, NEGATIVE);
 
     private static final transient Predicate<Account> INVALID_ACCOUNT_DATA = account -> ValidatorHelper.validate(account, NULL) ||
             ValidatorHelper.validate(account.getNumber(), NULL, EMPTY, ACCOUNT_PATTERN) ||

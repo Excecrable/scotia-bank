@@ -30,7 +30,7 @@
         <mysql.version>8.0.20</mysql.version>
 
         <!-- Start application -->
-        <start-class>com.scotiabankcolpatria.BackendApplication</start-class>
+        <start-class>com.scotiabankcolpatria.ScotiabankTestApplication</start-class>
     </properties>
 
     <!-- Dependencies -->

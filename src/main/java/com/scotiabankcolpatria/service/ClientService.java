@@ -149,7 +149,6 @@ public final class ClientService implements Serializable {
                             .message(ConstantsHelper.OK_MESSAGE)
                             .client(client)
                             .build());
-
                 })
                 .onErrorResume(ERROR_HANDLER)
                 .doFinally(ON_FINALLY);

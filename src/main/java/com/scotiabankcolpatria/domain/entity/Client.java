@@ -17,7 +17,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table
+@Table(indexes = @Index(name = "idx_client_name", columnList = "name"))
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class Client implements Serializable {
 
@@ -28,13 +28,13 @@ public class Client implements Serializable {
     @Column(nullable = false, unique = true)
     private Integer id;
 
-    @Column(nullable = false)
+    @Column(nullable = false, length = 45, unique = true)
     private String name;
 
     @Column(nullable = false)
     private String address;
 
-    @Column
+    @Column(length = 15)
     private String phone;
 
     @JsonIgnore

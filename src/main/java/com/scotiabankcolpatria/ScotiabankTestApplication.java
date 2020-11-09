@@ -17,14 +17,14 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 })
 @AllArgsConstructor
 @SpringBootApplication
-public class BackendApplication implements ApplicationListener<ContextRefreshedEvent> {
+public class ScotiabankTestApplication implements ApplicationListener<ContextRefreshedEvent> {
 
     private static final String LOG_LINE = "----------------------------------------------------";
 
     private final GlobalProperties globalProperties;
 
     public static void main(String[] args) {
-        final SpringApplication application = new SpringApplication(BackendApplication.class);
+        final SpringApplication application = new SpringApplication(ScotiabankTestApplication.class);
         application.run();
     }
 
