@@ -31,7 +31,7 @@ public class Account implements Serializable {
     @JoinColumn(name = "client_id", nullable = false)
     private Client client;
 
-    @Column(nullable = false, length = 19)
+    @Column(nullable = false)
     private String number;
 
     @Column(nullable = false)

@@ -62,10 +62,8 @@ public final class ClientService implements Serializable {
                     .message(e.getMessage())
                     .build());
         } finally {
-            if (watch.isRunning()) {
-                watch.stop();
-                log.info(MessagesHelper.EXECUTION_TIME, watch.getTotalTimeSeconds());
-            }
+            watch.stop();
+            log.info(MessagesHelper.EXECUTION_TIME, watch.getTotalTimeSeconds());
             log.info("----- Transacción finalizada ----");
         }
     }
@@ -95,10 +93,8 @@ public final class ClientService implements Serializable {
 
                     // Devolver el cliente
                     log.info("Cliente '{}', consultado de manera satisfactoria", client.getName());
-                    if (watch.isRunning()) {
-                        watch.stop();
-                        log.info(MessagesHelper.EXECUTION_TIME, watch.getTotalTimeSeconds());
-                    }
+                    watch.stop();
+                    log.info(MessagesHelper.EXECUTION_TIME, watch.getTotalTimeSeconds());
 
                     // Devolver la respuesta exitosa
                     return Mono.just(Response
@@ -143,10 +139,8 @@ public final class ClientService implements Serializable {
                     client.setStatus(ClientStatus.ENABLED);
                     client = clientRepository.save(client);
                     log.info("Cliente '{}', registrado de manera satisfactoria", client.getName());
-                    if (watch.isRunning()) {
-                        watch.stop();
-                        log.info(MessagesHelper.EXECUTION_TIME, watch.getTotalTimeSeconds());
-                    }
+                    watch.stop();
+                    log.info(MessagesHelper.EXECUTION_TIME, watch.getTotalTimeSeconds());
 
                     // Devolver la respuesta exitosa
                     return Mono.just(Response
@@ -199,10 +193,8 @@ public final class ClientService implements Serializable {
                     clientBD.setPhone((client.getPhone() != null) ? client.getPhone() : clientBD.getPhone());
                     clientBD = clientRepository.save(clientBD);
                     log.info("Cliente '{}', modificado de manera satisfactoria", client.getName());
-                    if (watch.isRunning()) {
-                        watch.stop();
-                        log.info(MessagesHelper.EXECUTION_TIME, watch.getTotalTimeSeconds());
-                    }
+                    watch.stop();
+                    log.info(MessagesHelper.EXECUTION_TIME, watch.getTotalTimeSeconds());
 
                     // Devolver la respuesta exitosa
                     return Mono.just(Response
@@ -255,10 +247,8 @@ public final class ClientService implements Serializable {
                     client.setStatus(ClientStatus.DISABLED);
                     clientRepository.save(client);
                     log.info("Cliente '{}', eliminado de manera satisfactoria", client.getName());
-                    if (watch.isRunning()) {
-                        watch.stop();
-                        log.info(MessagesHelper.EXECUTION_TIME, watch.getTotalTimeSeconds());
-                    }
+                    watch.stop();
+                    log.info(MessagesHelper.EXECUTION_TIME, watch.getTotalTimeSeconds());
 
                     // Devolver la respuesta exitosa
                     return Mono.just(Response
@@ -304,10 +294,8 @@ public final class ClientService implements Serializable {
                     client.setStatus(ClientStatus.ENABLED);
                     clientRepository.save(client);
                     log.info("Cliente '{}', habilitado de manera satisfactoria", client.getName());
-                    if (watch.isRunning()) {
-                        watch.stop();
-                        log.info(MessagesHelper.EXECUTION_TIME, watch.getTotalTimeSeconds());
-                    }
+                    watch.stop();
+                    log.info(MessagesHelper.EXECUTION_TIME, watch.getTotalTimeSeconds());
 
                     // Devolver la respuesta exitosa
                     return Mono.just(Response

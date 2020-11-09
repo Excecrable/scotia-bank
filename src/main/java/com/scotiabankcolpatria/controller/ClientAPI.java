@@ -2,6 +2,7 @@ package com.scotiabankcolpatria.controller;
 
 import com.scotiabankcolpatria.domain.to.Request;
 import com.scotiabankcolpatria.domain.to.Response;
+import com.scotiabankcolpatria.helper.ConstantsHelper;
 import com.scotiabankcolpatria.service.ClientService;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -17,7 +18,7 @@ import java.io.Serializable;
 @AllArgsConstructor
 @RestController
 @RequestMapping(value = "${spring.application.root}/client")
-public class ClientAPI implements Serializable {
+public final class ClientAPI implements Serializable {
 
     private final ClientService clientService;
 
@@ -30,7 +31,7 @@ public class ClientAPI implements Serializable {
         );
     }
 
-    @GetMapping(value = "/{clientName}", name = "Consultar cliente")
+    @GetMapping(value = ConstantsHelper.PARAM_CLIENT_NAME, name = "Consultar cliente")
     public Mono<ResponseEntity<Mono<Response>>> getClient(@PathVariable @NotNull String clientName) {
         return Mono.just(
                 new ResponseEntity<>(
@@ -44,7 +45,7 @@ public class ClientAPI implements Serializable {
         return Mono.just(new ResponseEntity<>(clientService.create(request), HttpStatus.OK));
     }
 
-    @PostMapping(value = "/{clientName}", name = "Modificar cliente")
+    @PostMapping(value = ConstantsHelper.PARAM_CLIENT_NAME, name = "Modificar cliente")
     public Mono<ResponseEntity<Mono<Response>>> updateClient(
             @PathVariable @NotNull String clientName,
             @RequestBody @NotNull Mono<Request> request) {
@@ -55,7 +56,7 @@ public class ClientAPI implements Serializable {
         );
     }
 
-    @DeleteMapping(value = "/{clientName}", name = "Eliminar cliente")
+    @DeleteMapping(value = ConstantsHelper.PARAM_CLIENT_NAME, name = "Eliminar cliente")
     public Mono<ResponseEntity<Mono<Response>>> removeClient(@PathVariable @NotNull String clientName) {
         return Mono.just(
                 new ResponseEntity<>(
@@ -64,7 +65,7 @@ public class ClientAPI implements Serializable {
         );
     }
 
-    @PatchMapping(value = "/{clientName}", name = "Activar cliente")
+    @PatchMapping(value = ConstantsHelper.PARAM_CLIENT_NAME, name = "Activar cliente")
     public Mono<ResponseEntity<Mono<Response>>> enableClient(@PathVariable @NotNull String clientName) {
         return Mono.just(
                 new ResponseEntity<>(

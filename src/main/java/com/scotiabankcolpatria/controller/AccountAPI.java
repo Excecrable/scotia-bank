@@ -2,6 +2,7 @@ package com.scotiabankcolpatria.controller;
 
 import com.scotiabankcolpatria.domain.to.Request;
 import com.scotiabankcolpatria.domain.to.Response;
+import com.scotiabankcolpatria.helper.ConstantsHelper;
 import com.scotiabankcolpatria.service.AccountService;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -17,7 +18,7 @@ import java.io.Serializable;
 @AllArgsConstructor
 @RestController
 @RequestMapping(value = "${spring.application.root}/account")
-public class AccountAPI implements Serializable {
+public final class AccountAPI implements Serializable {
 
     private final AccountService accountService;
 
@@ -30,7 +31,7 @@ public class AccountAPI implements Serializable {
         );
     }
 
-    @GetMapping(value = "/{accountNumber}", name = "Consultar cuenta")
+    @GetMapping(value = ConstantsHelper.PARAM_ACCOUNT_NUMBER, name = "Consultar cuenta")
     public Mono<ResponseEntity<Mono<Response>>> getAccount(@PathVariable @NotNull String accountNumber) {
         return Mono.just(
                 new ResponseEntity<>(
@@ -44,7 +45,7 @@ public class AccountAPI implements Serializable {
         return Mono.just(new ResponseEntity<>(accountService.create(request), HttpStatus.OK));
     }
 
-    @PostMapping(value = "/{accountNumber}", name = "Modificar cuenta")
+    @PostMapping(value = ConstantsHelper.PARAM_ACCOUNT_NUMBER, name = "Modificar cuenta")
     public Mono<ResponseEntity<Mono<Response>>> updateAccount(
             @PathVariable @NotNull String accountNumber,
             @RequestBody @NotNull Mono<Request> request) {
@@ -55,7 +56,7 @@ public class AccountAPI implements Serializable {
         );
     }
 
-    @DeleteMapping(value = "/{accountNumber}", name = "Eliminar cuenta")
+    @DeleteMapping(value = ConstantsHelper.PARAM_ACCOUNT_NUMBER, name = "Eliminar cuenta")
     public Mono<ResponseEntity<Mono<Response>>> removeAccount(@PathVariable @NotNull String accountNumber) {
         return Mono.just(
                 new ResponseEntity<>(
@@ -64,7 +65,7 @@ public class AccountAPI implements Serializable {
         );
     }
 
-    @PatchMapping(value = "/{accountNumber}", name = "Activar cuenta")
+    @PatchMapping(value = ConstantsHelper.PARAM_ACCOUNT_NUMBER, name = "Activar cuenta")
     public Mono<ResponseEntity<Mono<Response>>> enableAccount(@PathVariable @NotNull String accountNumber) {
         return Mono.just(
                 new ResponseEntity<>(

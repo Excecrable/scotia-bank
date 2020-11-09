@@ -58,10 +58,8 @@ public final class AccountService implements Serializable {
                     .message(e.getMessage())
                     .build());
         } finally {
-            if (watch.isRunning()) {
-                watch.stop();
-                log.info(MessagesHelper.EXECUTION_TIME, watch.getTotalTimeSeconds());
-            }
+            watch.stop();
+            log.info(MessagesHelper.EXECUTION_TIME, watch.getTotalTimeSeconds());
             log.info("----- Transacción finalizada ----");
         }
     }
@@ -91,10 +89,8 @@ public final class AccountService implements Serializable {
 
                     // Devolver la cuenta
                     log.info("Cuenta '{}', consultada de manera satisfactoria", account.getNumber());
-                    if (watch.isRunning()) {
-                        watch.stop();
-                        log.info(MessagesHelper.EXECUTION_TIME, watch.getTotalTimeSeconds());
-                    }
+                    watch.stop();
+                    log.info(MessagesHelper.EXECUTION_TIME, watch.getTotalTimeSeconds());
 
                     // Devolver la respuesta exitosa
                     return Mono.just(Response
@@ -146,10 +142,8 @@ public final class AccountService implements Serializable {
                     account.setStatus(AccountStatus.ENABLED);
                     account = accountRepository.save(account);
                     log.info("Cuenta '{}', registrada de manera satisfactoria", account.getNumber());
-                    if (watch.isRunning()) {
-                        watch.stop();
-                        log.info(MessagesHelper.EXECUTION_TIME, watch.getTotalTimeSeconds());
-                    }
+                    watch.stop();
+                    log.info(MessagesHelper.EXECUTION_TIME, watch.getTotalTimeSeconds());
 
                     // Devolver la respuesta exitosa
                     return Mono.just(Response
@@ -215,10 +209,8 @@ public final class AccountService implements Serializable {
                     accountBD.setBalance((account.getBalance() != null) ? account.getBalance() : accountBD.getBalance());
                     accountBD = accountRepository.save(accountBD);
                     log.info("Cuenta '{}', modificada de manera satisfactoria", account.getNumber());
-                    if (watch.isRunning()) {
-                        watch.stop();
-                        log.info(MessagesHelper.EXECUTION_TIME, watch.getTotalTimeSeconds());
-                    }
+                    watch.stop();
+                    log.info(MessagesHelper.EXECUTION_TIME, watch.getTotalTimeSeconds());
 
                     // Devolver la respuesta exitosa
                     return Mono.just(Response
@@ -265,10 +257,8 @@ public final class AccountService implements Serializable {
                     account.setStatus(AccountStatus.DISABLED);
                     accountRepository.save(account);
                     log.info("Cuenta '{}', eliminada de manera satisfactoria", account.getNumber());
-                    if (watch.isRunning()) {
-                        watch.stop();
-                        log.info(MessagesHelper.EXECUTION_TIME, watch.getTotalTimeSeconds());
-                    }
+                    watch.stop();
+                    log.info(MessagesHelper.EXECUTION_TIME, watch.getTotalTimeSeconds());
 
                     // Devolver la respuesta exitosa
                     return Mono.just(Response
@@ -314,10 +304,8 @@ public final class AccountService implements Serializable {
                     account.setStatus(AccountStatus.ENABLED);
                     accountRepository.save(account);
                     log.info("Cuenta '{}', habilitada de manera satisfactoria", account.getNumber());
-                    if (watch.isRunning()) {
-                        watch.stop();
-                        log.info(MessagesHelper.EXECUTION_TIME, watch.getTotalTimeSeconds());
-                    }
+                    watch.stop();
+                    log.info(MessagesHelper.EXECUTION_TIME, watch.getTotalTimeSeconds());
 
                     // Devolver la respuesta exitosa
                     return Mono.just(Response

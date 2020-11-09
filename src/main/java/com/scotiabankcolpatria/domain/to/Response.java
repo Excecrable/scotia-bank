@@ -7,6 +7,7 @@ import lombok.Builder;
 import lombok.Data;
 
 import java.io.Serializable;
+import java.util.List;
 
 @Data
 @Builder
@@ -26,6 +27,6 @@ public class Response implements Serializable {
     private Iterable<Account> accounts;
 
     // Respuestas para el módulo: REPORTE
-    private Iterable<AccountReport> accountReports;
+    private List<AccountReport> accountReports;
 
 }

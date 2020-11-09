@@ -36,7 +36,7 @@ import static com.scotiabankcolpatria.helper.ValidatorHelper.Validations.*;
 @Service
 @Transactional
 @AllArgsConstructor
-public class TransactionService implements Serializable {
+public final class TransactionService implements Serializable {
 
     private final AccountRepository accountRepository;
     private final TransactionRepository transactionRepository;
@@ -88,10 +88,9 @@ public class TransactionService implements Serializable {
                             account.getNumber(),
                             transaction.getAmount()
                     );
-                    if (watch.isRunning()) {
-                        watch.stop();
-                        log.info(MessagesHelper.EXECUTION_TIME, watch.getTotalTimeSeconds());
-                    }
+
+                    watch.stop();
+                    log.info(MessagesHelper.EXECUTION_TIME, watch.getTotalTimeSeconds());
 
                     // Devolver la respuesta exitosa
                     return Mono.just(Response
@@ -107,7 +106,7 @@ public class TransactionService implements Serializable {
     }
 
     // Reporte de transacciones por cuenta
-    public Mono<Response> genrateReport(Mono<Request> mRequest) {
+    public Mono<Response> generateReport(Mono<Request> mRequest) {
         StopWatch watch = new StopWatch();
         watch.start();
 
@@ -130,10 +129,8 @@ public class TransactionService implements Serializable {
 
                     // Devolver el reporte
                     log.info("Se encontraron '{}'transacciones", transactions.size());
-                    if (watch.isRunning()) {
-                        watch.stop();
-                        log.info(MessagesHelper.EXECUTION_TIME, watch.getTotalTimeSeconds());
-                    }
+                    watch.stop();
+                    log.info(MessagesHelper.EXECUTION_TIME, watch.getTotalTimeSeconds());
 
                     // Devolver la respuesta exitosa
                     return Mono.just(Response

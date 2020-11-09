@@ -21,7 +21,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @RestController
 @RequestMapping(value = "${spring.application.root}/transaction")
-public class TransactionAPI implements Serializable {
+public final class TransactionAPI implements Serializable {
 
     private final TransactionService transactionService;
 
@@ -49,7 +49,7 @@ public class TransactionAPI implements Serializable {
 
     @PostMapping(value = "/report", name = "Reporte de cuentas y totales")
     public Mono<ResponseEntity<Mono<Response>>> report(@RequestBody @NotNull Mono<Request> request) {
-        return Mono.just(new ResponseEntity<>(transactionService.genrateReport(request), HttpStatus.OK));
+        return Mono.just(new ResponseEntity<>(transactionService.generateReport(request), HttpStatus.OK));
     }
 
     private static Mono<Transaction> parse(@NotNull TransactionType type, @NotNull String accountNumber, @NotNull Double amount) {
